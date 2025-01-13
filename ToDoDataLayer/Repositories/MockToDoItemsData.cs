@@ -8,11 +8,11 @@ using ToDoApp.Core;
 
 namespace ToDoApp.Infrastructure
 {
-    internal class MockToDoItemsData
+    public class MockToDoItemsData
     {
-        private static MockToDoItemsData _instance = null;
+        protected internal static MockToDoItemsData _instance = null;
         private static readonly object _lock = new object();
-        private static List<ToDoItem> _toDos;
+        protected internal static List<ToDoItem> _toDos;
 
         private MockToDoItemsData()
         {
@@ -25,7 +25,7 @@ namespace ToDoApp.Infrastructure
             };
         }
 
-        internal static MockToDoItemsData Instance
+        public static MockToDoItemsData Instance
         {
             get
             {
@@ -43,12 +43,12 @@ namespace ToDoApp.Infrastructure
             }
         }
 
-        internal List<ToDoItem> GetToDoItems
+        public List<ToDoItem> GetToDoItems
         {
             get { return _toDos; }
         }
 
-        internal void AddToDoItem(ToDoItem toDoItem)
+        public void AddToDoItem(ToDoItem toDoItem)
         {
             _toDos.Add(toDoItem);
         }
